@@ -196,6 +196,9 @@ fontLoader.load('./fonts/helvetiker_regular.typeface.json', function(font) {
     createTicks('z', 0x0000ff);
 });
 
+// Add rotation speed variable
+const rotationSpeed = 0.002;
+
 // ===== ANIMATION LOOP =====
 function animate() {
     requestAnimationFrame(animate);
@@ -208,6 +211,9 @@ function animate() {
     x += dx;
     y += dy;
     z += dz;
+    
+    // Rotate the entire scene
+    scene.rotation.y += rotationSpeed;
     
     // Log debug info periodically
     if (points.length % 100 === 0) {
